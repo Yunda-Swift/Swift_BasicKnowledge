@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios'>
+    <pages>
+        <page name='Page 01-基本展示'/>
+        <page name='Page 02-数据类型和注释'/>
+        <page name='Page 03-流程控制'/>
+        <page name='Page 04-函数'/>
+        <page name='Page 05-枚举'/>
+        <page name='Page 06-可选项'/>
+        <page name='Page 08-结构体和类'/>
+    </pages>
+</playground>
