@@ -7,6 +7,7 @@
         <page name='Page 04-函数'/>
         <page name='Page 05-枚举'/>
         <page name='Page 06-可选项'/>
-        <page name='Page 08-结构体和类'/>
+        <page name='Page 07-结构体和类'/>
+        <page name='Page 08-闭包'/>
     </pages>
 </playground>
