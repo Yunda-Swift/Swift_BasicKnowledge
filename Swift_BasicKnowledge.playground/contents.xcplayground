@@ -13,5 +13,6 @@
         <page name='Page 10-方法'/>
         <page name='Page 11-下标'/>
         <page name='Page 12-继承'/>
+        <page name='Page 13-初始化'/>
     </pages>
 </playground>
