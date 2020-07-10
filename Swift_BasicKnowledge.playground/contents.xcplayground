@@ -15,5 +15,6 @@
         <page name='Page 12-继承'/>
         <page name='Page 13-初始化'/>
         <page name='Page 14-可选链'/>
+        <page name='Page 15-协议'/>
     </pages>
 </playground>

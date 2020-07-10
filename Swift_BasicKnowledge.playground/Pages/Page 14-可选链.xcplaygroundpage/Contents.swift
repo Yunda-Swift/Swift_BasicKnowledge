@@ -18,7 +18,7 @@ class Person {
 }
 
 var person: Person? = Person()
-print(person)
+print(person!)
 
 // 强行解包: 如果结果为空，则表示会失败。
 var age1 = person!.age()
@@ -26,20 +26,20 @@ print(age1)
 
 // 可选项
 var age2 = person?.age()
-print(age2)
+print(age2 ?? 0)
 
 // 属性
 var name = person?.name
-print(name)
+print(name as Any)
 
 // 下标
 var index = person?[6]
-print(index)
+print(index ?? 0)
 
 func getName() -> String {"jack"}
 person?.name = getName()
 var name1 = person?.name
-print(name1)
+print(name1 as Any)
 
 
 /*
@@ -59,8 +59,8 @@ var weight = person?.dog?.weight
 var price = person?.car?.price
 
 
-print(weight)
-print(price)
+print(weight ?? 0)
+print(price ?? 0)
 
 
 // 多个？可以链接在一起
@@ -80,12 +80,12 @@ print(scores)
 var num1: Int? = 5
 num1? = 10
 
-print(num1)
+print(num1 ?? 0)
 
 
 var num2: Int? = nil
 num2? = 10
-print(num2)
+print(num2 ?? 0)
 
 
 var dict: [String: (Int, Int) -> Int] = [
@@ -93,7 +93,7 @@ var dict: [String: (Int, Int) -> Int] = [
     "difference" : (-)
 ]
 var result = dict["sum"]?(10, 20)
-print(result)
+print(result as Any)
 
 
 
