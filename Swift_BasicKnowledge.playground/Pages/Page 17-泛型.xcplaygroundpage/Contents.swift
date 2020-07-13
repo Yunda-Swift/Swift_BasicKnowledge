@@ -197,7 +197,7 @@ class PersonAAC {
 
 
 // 可选项的本质
-
+// 可选项的本质是enum类型
 
 
 
