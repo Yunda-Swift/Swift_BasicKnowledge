@@ -21,5 +21,6 @@
         <page name='Page 18-String与Array'/>
         <page name='Page 19-高级运算符'/>
         <page name='Page 20-扩展'/>
+        <page name='Page 21-访问控制'/>
     </pages>
 </playground>
