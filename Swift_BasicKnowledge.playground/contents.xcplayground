@@ -23,5 +23,6 @@
         <page name='Page 20-扩展'/>
         <page name='Page 21-访问控制'/>
         <page name='Page 22-内存管理'/>
+        <page name='Page 23-字面量'/>
     </pages>
 </playground>
