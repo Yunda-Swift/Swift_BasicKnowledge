@@ -28,5 +28,6 @@
         <page name='Page 25-从OC到Swift'/>
         <page name='Page 26-函数式编程'/>
         <page name='Page 27-面向协议编程'/>
+        <page name='Page 28-响应式编程'/>
     </pages>
 </playground>
