@@ -25,5 +25,6 @@
         <page name='Page 22-内存管理'/>
         <page name='Page 23-字面量'/>
         <page name='Page 24-模式匹配'/>
+        <page name='Page 25-从OC到Swift'/>
     </pages>
 </playground>
