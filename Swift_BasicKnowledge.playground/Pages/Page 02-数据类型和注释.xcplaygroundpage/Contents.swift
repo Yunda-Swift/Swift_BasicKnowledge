@@ -12,6 +12,7 @@ print(UInt8.max)
 print(UInt16.min)
 
 let bool = true
+// 取反就是false
 
 let string = "凯司机"
 
@@ -35,7 +36,7 @@ let int2: UInt8 = 1
 let int3 = int1 + UInt16(int2)
 
 
-// 整数、浮点数转换
+// 整数、浮点数转换求和
 let int = 3
 let double = 0.14159
 let pi = Double(int) + double
@@ -45,7 +46,7 @@ let intPi = Int(pi)
 // 字面量可以直接相加，因为数字字面量本身没有明确的类型
 let result = 3 + 0.1415926
 
-
+// 元组(Tuple)
 // Swift元祖的使用
 let http404Error = (404, "Not Found")
 print("The status code is \(http404Error.0)")
@@ -59,43 +60,10 @@ print("The status code is \(statusCode)")
 let (justTheStatusCode, _) = http404Error
 print("The status code is \(justTheStatusCode)")
 
-// 元组赋值带角标取值——不实用0、1、2等取值
+// 元组赋值带角标取值——不实用0、1、2等取值:相当于字典的key值使用
 let http202Status = (statusCode: 200, description: "OK")
 print("The status code is \(http202Status.statusCode)")
 print("The status content is \(http202Status.description)")
-
-
-
-
-//: [Next](@next)
-
-// 单行注释
-
-/*
- 1
- /* 多行注释的嵌套*/
- 2
- */
-
-//: #   一级标题:——单行markup的用法
-
-/*:
- #   一级标题—-多行markup的用法：冒号下面开始写
- ##  二级标题
- ### 三级标题
- #   学习Swift
- ##  基础变量
- - 变量
- - 常量
- ##  面向对象
- - 类
- - 属性
- - 方法
- ##  汇编分析
- - 变量
- - 常量
- [苹果官方](http://www.apple.com)
- */
 
 //: [下一页](@next)
 
