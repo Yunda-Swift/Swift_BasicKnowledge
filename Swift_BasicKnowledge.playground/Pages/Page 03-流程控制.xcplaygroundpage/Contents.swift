@@ -4,6 +4,9 @@ import UIKit
 import PlaygroundSupport
 
 // if - else: if后面的条件类型只能是bool类型，Swift中没有非0即正
+// 注意: if后面的条件可以省略小括号()
+// 条件后面的大括号{ }不可以省略
+
 let ageNumber = 4
 if ageNumber >= 22 {
     print("Get married")
@@ -48,7 +51,7 @@ for _ in 0...3 {
     print("用不到i时避免警告用_替代i")
 }
 
-// i默认是常量let不可变，要改变就下面这样改
+// i默认是常量let不可变，要改变修改就下面这样改
 for var i in 1...3 {
     i += 5
     print(i)
@@ -67,6 +70,7 @@ for name in names[0...3] {
     print(name)
 }
 
+// 尽可能的大，大到数组的最大值
 for i in names[2...] {
     print(i)
 }
@@ -83,14 +87,14 @@ for i in names[..<2] {
 let rangeNumber = ...5
 // return falseA
 rangeNumber.contains(7)
-print(range.contains(7))
+print(rangeNumber.contains(7))
 // return true
 rangeNumber.contains(4)
-print(range.contains(4))
+print(rangeNumber.contains(4))
 // return false
 rangeNumber.contains(-3)
 // 此处不包括负数
-print(range.contains(-3))
+print(rangeNumber.contains(-3))
 
 
 // 区间类型
@@ -118,11 +122,6 @@ let characterRange:ClosedRange<Character> = "\0"..."~"
 characterRange.contains("G")
 // return true
 
-
-// 字符、字符串也能使用区间运算符，但默认不能用在for-in中——截图page04——但是可以用在range中
-// 可以展示图片
-let imageView = UIImageView(image: UIImage(named: "page04"))
-PlaygroundPage.current.liveView = imageView
 
 // Character的展示——
 let str:Character = "b"
@@ -189,7 +188,7 @@ case .wrong:
     print("wrong")
 }
 
-// 11
+// 11复合条件
 let string = "Jack"
 switch string {
 case "RoseJack":
@@ -198,7 +197,7 @@ case "Jack":
     fallthrough
     // 仔细体会这个关键字的使用
 case "Rose":
-    print("Right person1")
+    print("Right person2")
 default:
     break
 }
@@ -234,6 +233,7 @@ default:
 }
 
 // 元祖匹配——坐标轴的判断问题
+// _代表忽略某个值
 let point = (1, 1)
 switch point {
 case (0, 0):
@@ -261,7 +261,8 @@ case (let x, let y):
 //    break
 }
 
-// where ——(X, y)元祖作为数组显示
+// where ——(x, y)元祖作为数组显示
+// 增加条件的判断
 let pointB = (1, -1)
 switch pointB {
 case let (x, y) where x == y:
@@ -272,7 +273,7 @@ case (let x, let y):
     print("(\(x) ,\(y)) is just some arbitrary point")
 }
 
-// where的作用就是条件过滤
+// where的作用就是条件过滤——但不决定是否退出，相当于continue
 // 将所有正数加起来
 var numbers = [10, 20, -10, -20, 30, -30]
 var sum = 0
