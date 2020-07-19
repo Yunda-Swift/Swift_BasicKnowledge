@@ -10,7 +10,8 @@ var name: String? = "Jack"
 print(name ?? 0)
 name = nil
 
-var age: Int?
+var age: Int?   // 默认是nil
+// var age: Int? = nil      // 同上完全等价
 age = 10
 print(age!)
 age = nil
@@ -223,17 +224,18 @@ login(["password" : "123456"])
 // guard语句
 // 当guard语句的条件为false时，就会执行大括号里面的代码
 // 当guard语句的条件为true时，就会跳过guard语句
-// guard语句特别适合用来 "提前退出"
+// guard语句特别适合用来 ⚠️："提前退出"
 // guard处理特殊情况，正常的就放过去了
 func loginA(_ info: [String: String]) {
     
     guard let username = info["username"] else {
         print("guard: 请输入用户名")
+        // 必须写return，退出当前作用域，否则会报错，结束本次运行
         return
     }
     guard let password = info["password"] else {
         print("guard: 请输入密码")
-               return
+        return
     }
     print("guard: 用户名\(username)", "密码\(password)", "登录ing")
 }
@@ -248,6 +250,8 @@ loginA(["password" : "123456"])
 // 在这种情况下，可以去掉检查，也不必每次访问的时候都进行拆包，因为它能确定每次访问的时候都有值
 // 可以在类型后面加个感叹号！定义一个隐式解包的可选项
 // 隐式解包值不能为nil会报错
+// ！ ！ ！ ！ ！ ！ ！ ！ ！⚠️——定位问题。可以省略感叹号
+// 尽量不要使用这种方法，尽可能用？。自己多注意⚠️
 let num1: Int! = 10
 let num2: Int = num1
 if num1 != nil {
@@ -262,23 +266,40 @@ if let num3 = num1 {
 
 
 // 可选项在字符串插值或者直接打印时，编译器会发出警告
-// Int有面的问号要紧跟着，这是一个运算符
+// Int有面的问号? 要紧跟着，这是一个运算符,还有感叹号！也紧跟着
 var ageC: Int? = 10
 //print("My ageC is\(ageC)")
-
+ 
 // 至少3种方法消除警告
 // 手动强制解包
 print("My ageC is\(ageC!)")
 
+// 合并解包
+print("My ageC is\(age ?? 0)")
+
 // 描述解包
 print("My ageC is\(String(describing: ageC))")
 
-// 合并解包
-print("My ageC is\(age ?? 0)")
 
 
 
 // 多重可选项的学习和理解
+var numABC1: Int? = 10
+// 盒子
+var numABC2: Int?? = num1
+// 盒子的盒子——套盒
+var numABC3: Int?? = 10
+// numABC2 等效 numABC3
+
+
+
+// 多重可选项的学习和理解
+var numABC11: Int? = nil
+// 盒子
+var numABC22: Int?? = num1
+// 盒子的盒子——套盒
+var numABC33: Int?? = nil
+// numABC23 不等效 numABC33
 
 
 
@@ -288,12 +309,7 @@ print("My ageC is\(age ?? 0)")
 
 
 
-
-
-
-
-
-
+// 使用lldb指令 fram variable -R 或者 fr v -R查看多重可选项或者对象的区别
 
 
 //: [Next](@next)

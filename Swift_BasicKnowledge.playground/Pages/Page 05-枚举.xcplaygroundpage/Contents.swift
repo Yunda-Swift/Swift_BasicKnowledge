@@ -9,7 +9,7 @@ enum Direction {
     case east
     case west
 }
-
+// 同上等价写法
 enum DirectionSecond {
     case north, south, east, west
 }
@@ -87,6 +87,7 @@ case let .gesture(string):
 // 原始值(Raw Values)——RawValue的默认值
 // 枚举成员变量可以使用相同类型的默认值预先对应这个默认值叫做：原始值
 // 泛型枚举
+// 原始值类型
 enum PokeSuit : Character {
     case spade = "♠️"
     case heart = "♥️"
@@ -127,7 +128,7 @@ enum DirectionA : String {
     case west = "west"
 }
 
-// 等价于
+// 同上等价于
 enum DirectionB : String {
     case north, south, east, west
 }
@@ -146,26 +147,27 @@ enum SeasonB : Int {
     case spring = 1, summer, autumn = 4, winter
 }
 
-print(SeasonA.spring.rawValue)
-print(SeasonA.summer.rawValue)
-print(SeasonA.autumn.rawValue)
-print(SeasonA.winter.rawValue)
+print(SeasonA.spring.rawValue) // 0
+print(SeasonA.summer.rawValue) // 1
+print(SeasonA.autumn.rawValue) // 2
+print(SeasonA.winter.rawValue) // 3
 print("————————————————————")
-print(SeasonB.spring.rawValue)
-print(SeasonB.summer.rawValue)
-print(SeasonB.autumn.rawValue)
-print(SeasonB.winter.rawValue)
+print(SeasonB.spring.rawValue) // 1
+print(SeasonB.summer.rawValue) // 2
+print(SeasonB.autumn.rawValue) // 4
+print(SeasonB.winter.rawValue) // 5
 
 
 
 
 // 递归枚举(Recursive Enumeration)
+// 必须添加 indirect字段
 indirect enum ArithExpr {
     case number(Int)
     case sum(ArithExpr, ArithExpr)
     case difference(ArithExpr, ArithExpr)
 }
-
+// ⚠️: indirect字段添加到开头或者添加到具体case前面
 enum ArithExprB {
     case number(Int)
     indirect case sum(ArithExprB, ArithExprB)
@@ -207,26 +209,43 @@ print(calculate(difference))
 
 // MemoryLayout
 // 可以使用MemoryLayout获取数据类型占用的内存大小
+// Swift类大些开头，case：小写开头
 enum PasswordA {
     case number(Int, Int, Int, Int)
     case other
 }
-MemoryLayout<Password>.stride
-// 40, 分配占用空间大小
-MemoryLayout<Password>.size
-// 33 分配占用的空间大小
-MemoryLayout<Password>.alignment
+MemoryLayout<PasswordA>.stride
+// 40, 分配占用的空间大小
+MemoryLayout<PasswordA>.size
+// 33 实际用到的空间大小
+MemoryLayout<PasswordA>.alignment
 // 8 对齐参数
+// 等价
 
 var pwdA = PasswordA.number(9, 8, 6, 4)
 pwdA = .other
 MemoryLayout.stride(ofValue: pwdA)
 MemoryLayout.size(ofValue: pwdA)
 MemoryLayout.alignment(ofValue: pwdA)
+// 等价
 print(MemoryLayout.stride(ofValue: pwdA))
 print(MemoryLayout.size(ofValue: pwdA))
 print(MemoryLayout.alignment(ofValue: pwdA))
 
+
+
+enum SeasonABD : Int {
+    case spring, summer, autumn, winter
+}
+// 只给一个字节就行
+var s = SeasonABD.spring
+
+ 
+MemoryLayout<SeasonABD>.stride
+
+MemoryLayout<SeasonABD>.size
+
+MemoryLayout<SeasonABD>.alignment
 
 
 
