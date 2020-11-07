@@ -138,6 +138,35 @@ var s1 = StudentA()
 
 // 可失败初始化器
 // 类、结构体、枚举都可以使用init？定义可失败初始化器
+class PersonBCC {
+    var name: String
+    init?(name: String) {
+        if name.isEmpty {
+            return nil
+        }
+        self.name = name
+    }
+    
+//    init(name: String) {
+//
+//    }
+    convenience init() {
+        self.init(name: "")!
+        self.name = "KSJ"
+    }
+}
+var pBC1 = PersonBCC(name: "")
+print(pBC1)
+
+var pBC2 = PersonBCC(name: "KSJ")
+print(pBC2)
+
+// 不允许同时定义参数标签、参数个数、参数类型相同的可失败初始化器和非可失败初始化器
+// 可以使用init！定义隐式的可失败初始化器
+// 可失败初始化器可以调用非可失败初始化器，非可失败初始化器调用可失败初始化器需要进行解包
+// 如果初始化器调用一个可失败初始化器导致初始化失败，那么整个初始化过程都失败，并且之后的代码都停止执行
+// 可失败不能重写不可失败初始化器
+
 
 
 
@@ -151,10 +180,10 @@ class PersonB {
     }
 }
 
-// deinit不接受任何参数，不能写小括号，不能自行调用
+// deinit不接受任何参数，不能写小括号()，不能自行调用
 // 父类的deinit能被子类继承
 // 子类的deinit实现执行完毕后会调用父类的deinit
-
+// 对象不销毁的原因，就是因为有强引用指向该对象，导致无法释放
 
 
 

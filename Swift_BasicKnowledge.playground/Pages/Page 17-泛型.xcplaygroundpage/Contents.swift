@@ -49,6 +49,7 @@ class Stack<E> {
 
 class SubStack<E>: Stack<E> {}
 
+// mutating修改结构体的内存
 struct StackStruct<E> {
     var elements = [E]()
     mutating func push(_ element: E) { elements.append(element) }
@@ -86,6 +87,7 @@ let score3 = Score<Int>.grade("A")
 protocol Stackable2 {
     // 关联类型
     associatedtype Element
+    associatedtype Element2
     mutating func push(_ element: Element)
     mutating func pop() -> Element
     func top() -> Element

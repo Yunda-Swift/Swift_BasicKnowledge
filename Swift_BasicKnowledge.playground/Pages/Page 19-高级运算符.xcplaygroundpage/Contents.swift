@@ -47,8 +47,9 @@ print(max &* 2)
 
 
 // Equatable
-// 要想得知2个实例是否等价，一般做法是遵守Equatable协议，重载==运算符
+// 要想得知2个实例是否等价，一般做法是遵守Equatable协议，重载：==运算符
 // 与此同时，等价于重载了 != 运算符
+// 告诉别人这个可以进行等号运算符进行计算的
 struct Point: Equatable {
     var x: Int, y: Int
 }

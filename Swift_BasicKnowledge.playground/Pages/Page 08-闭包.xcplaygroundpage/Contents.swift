@@ -1,7 +1,7 @@
 //: [Previous](@previous)
 
 import Foundation
-// 闭包表达式
+// 闭包表达式(Closure Expression)
 // 在Swift中，可以通过func定义一个函数，也可以通过闭包表达式定义一个函数
 func sum(_ v1: Int, _ v2: Int) -> Int {v1 + v2}
 
@@ -14,7 +14,7 @@ var fn = {
 // 闭包
 fn(10, 20)
 print(fn(10, 20))
-
+// 闭包1和闭包2的写法都可以
 
 // 闭包2: 不能从头单独开始, 必须包含在函数或者方法内部使用————无名闭包的使用
 // 如下：
@@ -164,7 +164,7 @@ print(numsB)
 numsB.sort(by: { $0 > $1 })
 print(numsB)
 
-
+// 闭包表达式
 numsB.sort{ $0 < $1 }
 print(numsB)
 
@@ -190,7 +190,7 @@ execC { _, _ -> Int in
 
 
 
-
+// 闭包   和   闭包表达式不是一回事/是完全的两回事
 // 闭包(Closure)
 // 网上有各种关于闭包的定义，个人觉得比较严谨的定义是：
 // 一个函数和它所捕获的变量、常量环境组合起来，称为闭包

@@ -47,6 +47,7 @@ protocol DrawableA {
     subscript(index: Int) -> Int { get set }
 }
 
+// 存储属性实现
 class PersonA: DrawableA {
     func draw() {
         print("PersonA draw")
@@ -59,6 +60,7 @@ class PersonA: DrawableA {
     }
 }
 
+// 计算属性实现
 class PersonB: DrawableA {
     func draw() {
         print("PersonB draw")
@@ -231,7 +233,7 @@ func fn1(obj: LivableC) {}
 // 接受同时遵守Livable、Runnable协议的实例
 func fn2(obj: LivableC & RunnableC) {}
 
-// 接收同时遵守Livable、Runnable协议、并且是Person或者其子类的实例
+// 接收同时遵守Livable、Runnable协议、并且是Person或者其子类的实例/必须同时遵守，没有或的概念
 func fn3(obj: PersonH & LivableC & RunnableC) {}
 
 // 重新进行定义
@@ -299,7 +301,7 @@ print(dataAC)
 
 
 // is、as?、as!、as
-// is用来判断是否为某种类型, as用类做墙纸类型转换
+// is用来判断是否为某种类型, as用类做强制类型转换
 protocol RunnableE {
     func run()
 }
@@ -330,7 +332,7 @@ print(stuAny is RunnableE)
 
 
 var stuBB: Any = 10
-// 不是任意类型都可以进行强转
+// 不是任意类型都可以进行强转——可能成功
 (stuBB as? StudentAA)?.study()
 
 stuBB = StudentAA()
@@ -339,7 +341,7 @@ stuBB = StudentAA()
 // 注意类型的转换和方法的调用
 (stuBB as? RunnableE)?.run()
 
-
+// as 100%转换
 var data = [Any]()
 data.append(Int("123") as Any)
 
@@ -445,27 +447,6 @@ print(pFF.test)
 
 var stuFF = StudentFF()
 print(stuFF.test())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

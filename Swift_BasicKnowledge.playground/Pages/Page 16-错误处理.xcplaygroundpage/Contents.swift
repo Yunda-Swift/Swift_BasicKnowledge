@@ -34,7 +34,7 @@ func divide(_ num1: Int, _ num2: Int) throws -> Int {
     return num1 / num2
 }
 print("执行下面的代码.......执行哪块放开哪块")
-// 需要使用try调用可能会抛出Error的函数
+// 需要使用try调用可能会抛出Error的函数，没有try报错就是致命的错误
 // try
 //var result = try divide(20, 0)
 
@@ -62,7 +62,7 @@ print("执行下面的代码.......执行哪块放开哪块")
 //}
 //
 //test()
-
+// 抛出Error后，try下一句直到作用域结束的代码都将停止运行
 
 
 
@@ -113,6 +113,7 @@ print("执行下面的代码.......执行哪块放开哪块")
 //    print(try divide(20, 0))
 //} catch is SomeError {
 //    print("SomeError")
+//} catch {
 //}
 //
 //func testC() throws {
@@ -156,6 +157,7 @@ print("执行下面的代码.......执行哪块放开哪块")
 
 // rethrows
 // rethrows表明: 函数本身不会抛出错误，但调用闭包参数抛出错误，那么它会将错误向上抛
+//  仅仅是一个声明
 //func exec(_ fn: (Int, Int) throws -> Int, _ num1: Int, _ num2: Int) rethrows {
 //    print(try fn(num1, num2))
 //}
