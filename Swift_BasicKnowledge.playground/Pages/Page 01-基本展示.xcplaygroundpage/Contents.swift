@@ -1,16 +1,16 @@
 
 
-
 // 开发进度指示器:>>>>>>>>>>>>>>>>>>>> ——> 7视/08可选项
-
-
 
 import Foundation
 import UIKit
 
+// Swift的输出函数的简单应用
+print("Hello world")
 print("Hello world")
 // Swift中不用编写main函数，Swift将全局首句可执行代码作为程序的入口
 // 同行多句代码添加分号;隔开，其他情况可以省略
+
 
 // 变量类型的使用
 var number1 = 11
@@ -20,6 +20,11 @@ print(number1)
 number1 = 13
 print(number1)
 
+var numberCopy1 = 11
+print(numberCopy1)
+
+
+// 不可变量
 // let只能赋值1次
 // let保证只赋值一次, 初次指定类型可以不赋值: 也可以直接赋值不指定类型自行推导
 
@@ -28,9 +33,14 @@ age = 10
 print(number1, age)
 print("文字的拼接展示效果...\(number1)", age)
 
-// Swift相对于OC而言更加的安全，例如：常量、变量在初始化之前，都不能使用，使用就会直接报错，不是运行报错，安全安全性——OC中则没有
-// 学习了汇编代码会有助于理解和学习OC和Swift代码具体做了些什么内容、掌握编程语言的本质
+let ageCopy: Int
+ageCopy = 10
+print(numberCopy1, age)
+print("文字的拼接展示效果...\(ageCopy)", age)
 
+
+// Swift相对于OC而言更加的安全，例如：常量、变量在初始化之前，都不能使用，使用就会直接报错，不是运行报错，安全性——OC中则没有
+// 学习了汇编代码会有助于理解和学习OC和Swift代码具体做了些什么内容、掌握编程语言的本质
 var str = "Hello, playground"
 let a = 10
 let b = 20
