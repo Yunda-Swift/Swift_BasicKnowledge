@@ -62,6 +62,7 @@ print(arrD.reduce([]) {$1 % 2 == 0 ? $0 + [$1] : $0})
 
 // E
 // lazy的优化
+// 用的时候才去调用这个函数
 let arrE = [1, 2, 3]
 let result = arrE.lazy.map {
     (i: Int) -> Int in
@@ -83,18 +84,20 @@ print("end....")
 // OPtional的map和flatMap1
 var numAA1: Int? = 10
 var numAA2 = numAA1.map { $0 + 2 }
-print(numAA2)
+print(numAA2 ?? 0)
 
 
 var numAA3: Int? = nil
 var numAA4 = numAA3.map { $0 * 2 }
-print(numAA4)
+print(numAA4 ?? 0)
+
 
 var numBB1: Int? = 10
 var numBB2 = numBB1.map { Optional.some($0 * 2) }
-print(numBB2)
+print(numBB2!!)
+
 var numBB3 = numBB1.flatMap { Optional.some($0 * 2) }
-print(numBB3)
+print(numBB3 ?? 0)
 
 
 

@@ -44,44 +44,4 @@ public enum Event<Element> {
  3. completed：表明Obsetvable终止，不会再发生事件
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //: [Next](@next)
