@@ -3,6 +3,7 @@
 import UIKit
 import PlaygroundSupport
 
+// ※if后面的条件类型只能是bool类型
 // if - else: if后面的条件类型只能是bool类型，Swift中没有非0即正
 // 注意: if后面的条件可以省略小括号()
 // 条件后面的大括号{ }不可以省略
@@ -47,11 +48,13 @@ for i in 0...3 {
     print(i)
 }
 
+// _ 用于用不到i时避免警告用_替代i
 for _ in 0...3 {
     print("用不到i时避免警告用_替代i")
 }
 
-// i默认是常量let不可变，要改变修改就下面这样改
+// i默认是常量let不可变，要改变修改就下面这样改：
+// 可以对i进行修改赋值进行循环遍历的跳转循环，但是不可以对循环遍历时的数组进行增删改
 for var i in 1...3 {
     i += 5
     print(i)
@@ -59,7 +62,7 @@ for var i in 1...3 {
 
 // 半开区间运算符：a..<b
 for i in 0..<5 {
-    print(i)
+    print(">>>>>>>>>>>>>",(i))
 }
 
 // 单侧区间： 让区间朝一个方向尽可能地远
@@ -149,12 +152,14 @@ case 1:
     print("1")
     break
     // break默认可以不写，并不会贯穿到后面的条件——相当于默认有break
+    // OC中不写break就会贯穿执行，但是Swift中不会！！！
 case 2:
     print("2")
     break
     // fallthroughy可以实现条件判断的贯穿，即使满足条件后面还可以继续执行——直到遇见下一个break
+    // Swift中贯穿改成手动控制，使用fallthroughy；不是靠省略break来实现。
 default:
-    // 必须得有defalut也就是else的情况，必须加否则不安全就会报错——Switch must be exhaustive
+    // (一般情况下)必须得有defalut也就是else的情况，必须加defalut否则不安全就会报错——Switch must be exhaustive(如果能够举例全部的情况，则可以省略)
     print("3")
     // 如果不想做任何事情，可以仅添加break这一行代码就够了
     break
@@ -188,6 +193,17 @@ case .wrong:
     print("wrong")
 }
 
+// 枚举类型的类型可以省略，直接用.来取代
+//enum AnswerCopy {case right, wrong}
+//let answerCopy = AnswerCopy.right
+//switch answerCopy {
+//case .right:
+//    print("right")
+//case .wrong:
+//    print("wrong")
+//}
+
+
 // 11复合条件
 let string = "Jack"
 switch string {
@@ -195,14 +211,14 @@ case "RoseJack":
     print("Right person1")
 case "Jack":
     fallthrough
-    // 仔细体会这个关键字的使用
+    // 仔细体会这个关键字的使用——下面的代码会执行，不再判断，相当于合并——"或"的关系
 case "Rose":
     print("Right person2")
 default:
     break
 }
 
-// 11和22的写法是等价的
+// >>>>>>>11和22的写法是等价的
 
 // 22
 switch string {
@@ -273,6 +289,16 @@ case (let x, let y):
     print("(\(x) ,\(y)) is just some arbitrary point")
 }
 
+//let pointBCopy = (1, -1)
+//switch pointBCopy {
+//case let(x, y) where x == y:
+//    print("on the line x == y")
+//case let(x, y) where x == -y:
+//    print("on the line x == -y")
+//case (let x, let y):
+//    print("(\(x) ,\(y)) is just some arbitrary point")
+//}
+
 // where的作用就是条件过滤——但不决定是否退出，相当于continue
 // 将所有正数加起来
 var numbers = [10, 20, -10, -20, 30, -30]
@@ -281,7 +307,17 @@ for num in numbers where num > 0 {
     sum += num
 }
 
+// where的使用，for循环中使用where的条件判断，不用在for循环中使用
+//var number2Copy = [10, 20, -10, -20, 30, -30]
+//var sumCopy = 0
+//for numCopy in number2Copy where numCopy > 0 {
+//    sumCopy += sumCopy
+    // Swift3中废除了自加++，自减--运算
+//}
+
+
 // 标签语句
+// 完全终止
 outer: for i in 1...4 {
     for k in 1...4 {
         if k == 3 {
@@ -293,5 +329,18 @@ outer: for i in 1...4 {
         print("i==\(i), k==\(k)")
     }
 }
+
+// 跳转到outer完全终止执行后面的代码
+//outer: for iCopy in 1...4 {
+//    for k in 1...4 {
+//        if k == 3 {
+//            continue outer
+//        }
+//        if iCopy == 3 {
+//            break outer
+//        }
+//        print("i==\(iCopy), k==\(k)")
+//    }
+//}
 
 //: [Next](@next)

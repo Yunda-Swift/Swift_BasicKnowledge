@@ -10,6 +10,7 @@ print("Hello world")
 print("Hello world")
 // Swift中不用编写main函数，Swift将全局首句可执行代码作为程序的入口
 // 同行多句代码添加分号;隔开，其他情况可以省略
+// 单行一句代码不用加;分号
 
 
 // 变量类型的使用
